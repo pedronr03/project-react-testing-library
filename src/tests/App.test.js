@@ -5,7 +5,7 @@ import renderWithRouter from '../renderWithRouter';
 import App from '../App';
 
 describe('Teste o componente <App.js />', () => {
-  test('Teste o componente about', () => {
+  test('Testa o componente about.', () => {
     const { history } = renderWithRouter(<App />);
     const about = screen.getByRole('link', { name: /about/i });
     expect(about).toBeInTheDocument();
@@ -13,7 +13,7 @@ describe('Teste o componente <App.js />', () => {
     expect(history.location.pathname).toBe('/about');
   });
 
-  test('Teste o componente favorites', () => {
+  test('Testa o componente favorites.', () => {
     const { history } = renderWithRouter(<App />);
     const favorites = screen.getByRole('link', { name: /favorite pokémons/i });
     expect(favorites).toBeInTheDocument();
@@ -21,7 +21,7 @@ describe('Teste o componente <App.js />', () => {
     expect(history.location.pathname).toBe('/favorites');
   });
 
-  test('Teste o componente home', () => {
+  test('Testa o componente home.', () => {
     const { history } = renderWithRouter(<App />);
     const home = screen.getByRole('link', { name: /home/i });
     expect(home).toBeInTheDocument();
