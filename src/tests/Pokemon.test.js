@@ -22,7 +22,7 @@ describe('Teste o componente <Pokemon.js />', () => {
     const link = screen.getByRole('link', { name: /more details/i });
     userEvent.click(link);
     expect(history.location.pathname).toBe(`/pokemons/${pokemon.id}`);
-    expect(screen.getByText('Pikachu Details')).toBeInTheDocument();
+    expect(screen.getByText(`${pokemon.name} Details`)).toBeInTheDocument();
   });
   test('Testa se o pokemon está favoritado.', () => {
     renderWithRouter(<App />);
@@ -31,7 +31,8 @@ describe('Teste o componente <Pokemon.js />', () => {
     const checkbox = screen.getByLabelText('Pokémon favoritado?');
     expect(checkbox).toBeInTheDocument();
     userEvent.click(checkbox);
-    const img = screen.getByRole('img', { name: 'Pikachu is marked as favorite' });
+    const img = screen
+      .getByRole('img', { name: `${pokemon.name} is marked as favorite` });
     expect(img).toHaveAttribute('src', '/star-icon.svg');
   });
 });
